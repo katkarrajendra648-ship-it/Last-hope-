@@ -1,98 +1,93 @@
+    </div>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Last Hope ❤️</title>
+  <meta charset="UTF-8">
+  <title>Last Hope 💖</title>
 
-<style>
-body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:Arial, sans-serif;
-    overflow:hidden;
-    background:#ff4d6d;
-}
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
 
-/* falling hearts */
-.heart{
-    position:absolute;
-    font-size:20px;
-    animation:fall 6s linear infinite;
-}
-@keyframes fall{
-    0%{transform:translateY(-10vh);opacity:1;}
-    100%{transform:translateY(110vh);opacity:0;}
-}
+    .container {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(255,0,100,0.3);
+      animation: fadeIn 2s ease;
+    }
 
-.card{
-    width:380px;
-    background:white;
-    padding:20px;
-    border-radius:20px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.4);
-    text-align:center;
-    position:absolute;
-    z-index:2;
-}
+    h1 {
+      color: #fff;
+      margin-bottom: 20px;
+      animation: heartbeat 1.5s infinite;
+    }
 
-.card img{
-    width:100%;
-    border-radius:15px;
-}
+    img {
+      width: 200px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.6);
+    }
 
-#text{
-    font-size:16px;
-    margin:15px 0;
-    line-height:1.6;
-    min-height:220px;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
 
-.buttons{
-    margin-top:10px;
-}
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
 
-button{
-    padding:10px 25px;
-    font-size:16px;
-    border:none;
-    border-radius:25px;
-    cursor:pointer;
-}
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+    }
 
-.yes{
-    background:#28a745;
-    color:white;
-    animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.08);}
-    100%{transform:scale(1);}
-}
-
-.no{
-    background:#dc3545;
-    color:white;
-    position:relative;
-}
-</style>
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="card" id="card">
-    <img src="mine.jpg" alt="mine">
-    <p id="text"></p>
+  <div class="container">
+    <h1>Mine 💖</h1>
+    <img src="photo.jpg" alt="Love Photo">
+  </div>
 
-    <div class="buttons">
-        <button class="yes" onclick="yes()">YES</button>
-        <button class="no" id="no">NO</button>
-    </div>
-</div>
+  <script>
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 6000);
+    }, 400);
+  </script>
+
+</body>
+</html>
 
 <script>
 /* EXACT TEXT – NO CHANGE */
